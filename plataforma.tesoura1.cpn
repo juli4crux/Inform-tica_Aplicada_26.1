@@ -1,0 +1,957 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE workspaceElements PUBLIC "-//CPN//DTD CPNXML 1.0//EN" "http://cpntools.org/DTD/6/cpn.dtd">
+<workspaceElements>
+    <generator tool='CPN Tools' version='4.0.1' format='6'/>
+    <cpnet>
+        <globbox>
+            <block id='ID1412310166'>
+                <id>
+                    Standard priorities
+                </id>
+                <ml id='ID1412310255'>
+                    <layout>
+                        val P_HIGH = 100;
+                    </layout>
+                    val P_HIGH = 100;
+                </ml>
+                <ml id='ID1412310292'>
+                    <layout>
+                        val P_NORMAL = 1000;
+                    </layout>
+                    val P_NORMAL = 1000;
+                </ml>
+                <ml id='ID1412310322'>
+                    <layout>
+                        val P_LOW = 10000;
+                    </layout>
+                    val P_LOW = 10000;
+                </ml>
+            </block>
+            <block id='ID1'>
+                <id>
+                    Standard declarations
+                </id>
+                <color id='ID85042'>
+                    <id>
+                        UNIT
+                    </id>
+                    <unit>
+                    </unit>
+                    <layout>
+                        colset UNIT = unit;
+                    </layout>
+                </color>
+                <color id='ID4'>
+                    <id>
+                        BOOL
+                    </id>
+                    <bool>
+                    </bool>
+                </color>
+                <color id='ID3'>
+                    <id>
+                        INT
+                    </id>
+                    <int>
+                    </int>
+                </color>
+                <color id='ID1412312409'>
+                    <id>
+                        INTINF
+                    </id>
+                    <intinf>
+                    </intinf>
+                    <layout>
+                        colset INTINF = intinf;
+                    </layout>
+                </color>
+                <color id='ID1412312425'>
+                    <id>
+                        TIME
+                    </id>
+                    <time>
+                    </time>
+                    <layout>
+                        colset TIME = time;
+                    </layout>
+                </color>
+                <color id='ID1412322990'>
+                    <id>
+                        REAL
+                    </id>
+                    <real>
+                    </real>
+                    <layout>
+                        colset REAL = real;
+                    </layout>
+                </color>
+                <color id='ID5'>
+                    <id>
+                        STRING
+                    </id>
+                    <string>
+                    </string>
+                    <layout>
+                        colset STRING = string;
+                    </layout>
+                </color>
+                <color id='ID4810696392'>
+                    <id>
+                        CARGA
+                    </id>
+                    <int>
+                    </int>
+                    <layout>
+                        colset CARGA = int;
+                    </layout>
+                </color>
+                <color id='ID4810835107'>
+                    <id>
+                        DIRECAO
+                    </id>
+                    <enum>
+                        <id>
+                            SUBIR
+                        </id>
+                        <id>
+                            DESCER
+                        </id>
+                    </enum>
+                    <layout>
+                        colset DIRECAO = with SUBIR | DESCER;
+                    </layout>
+                </color>
+                <color id='ID4810876198'>
+                    <id>
+                        STATUS
+                    </id>
+                    <product>
+                        <id>
+                            CARGA
+                        </id>
+                        <id>
+                            DIRECAO
+                        </id>
+                    </product>
+                    <layout>
+                        colset STATUS = product CARGA * DIRECAO;
+                    </layout>
+                </color>
+                <var id='ID1412330717'>
+                    <type>
+                        <id>
+                            carga
+                        </id>
+                    </type>
+                    <id>
+                        p
+                    </id>
+                </var>
+                <var id='ID4810919136'>
+                    <type>
+                        <id>
+                            dire
+                        </id>
+                    </type>
+                    <id>
+                        d
+                    </id>
+                </var>
+                <var id='ID4810985763'>
+                    <type>
+                        <id>
+                            status
+                        </id>
+                    </type>
+                    <id>
+                        st
+                    </id>
+                </var>
+                <ml id='ID4811045011'>
+                    fun cargaSegura(p: CARGA) = (p &lt;= 500)
+                </ml>
+            </block>
+        </globbox>
+        <page id='ID6'>
+            <pageattr name='myNet'/>
+            <constraints>
+            </constraints>
+            <place id='ID4811417196'>
+                <posattr x='-516.000000' y='245.000000'/>
+                <fillattr colour='White' pattern='Solid' filled='false'/>
+                <lineattr colour='Black' thick='1' type='Solid'/>
+                <textattr colour='Black' bold='false'/>
+                <text>
+                    Bandeja_entrada
+                </text>
+                <ellipse w='80.000000' h='58.000000'/>
+                <token x='0.000000' y='-9.000000'>
+                    <text>
+                    </text>
+                </token>
+                <marking x='-1.000000' y='59.000000' hidden='false'>
+                    <snap snap_id='0' anchor.horizontal='0' anchor.vertical='0'/>
+                    <text>
+                    </text>
+                </marking>
+                <type id='ID4811417196a'>
+                    <posattr x='-453.000000' y='209.000000'/>
+                    <fillattr colour='White' pattern='Solid' filled='false'/>
+                    <lineattr colour='Black' thick='1' type='Solid'/>
+                    <textattr colour='Black' bold='false'/>
+                    <text tool='CPN Tools' version='4.0.1'>
+                        STATUS
+                    </text>
+                </type>
+                <initmark id='ID4811417196b'>
+                    <posattr x='-409.000000' y='172.000000'/>
+                    <fillattr colour='White' pattern='Solid' filled='false'/>
+                    <lineattr colour='Black' thick='1' type='Solid'/>
+                    <textattr colour='Black' bold='false'/>
+                    <text tool='CPN Tools' version='4.0.1'>
+                        1`(300, SUBIR) ++ 1`(700, SUBIR)
+                    </text>
+                </initmark>
+            </place>
+            <place id='ID4811418764'>
+                <posattr x='-217.000000' y='366.000000'/>
+                <fillattr colour='White' pattern='Solid' filled='false'/>
+                <lineattr colour='Black' thick='1' type='Solid'/>
+                <textattr colour='Black' bold='false'/>
+                <text>
+                    Plataforma_Elevada
+                </text>
+                <ellipse w='90.000000' h='54.000000'/>
+                <token x='0.000000' y='-7.000000'>
+                    <text>
+                    </text>
+                </token>
+                <marking x='-41.000000' y='-55.000000' hidden='false'>
+                    <snap snap_id='0' anchor.horizontal='0' anchor.vertical='0'/>
+                    <text>
+                    </text>
+                </marking>
+                <type id='ID4811418764a'>
+                    <posattr x='-153.000000' y='332.000000'/>
+                    <fillattr colour='White' pattern='Solid' filled='false'/>
+                    <lineattr colour='Black' thick='1' type='Solid'/>
+                    <textattr colour='Black' bold='false'/>
+                    <text tool='CPN Tools' version='4.0.1'>
+                        CARGA
+                    </text>
+                </type>
+                <initmark id='ID4811418764b'>
+                    <posattr x='-153.000000' y='401.000000'/>
+                    <fillattr colour='White' pattern='Solid' filled='false'/>
+                    <lineattr colour='Black' thick='1' type='Solid'/>
+                    <textattr colour='Black' bold='false'/>
+                    <text tool='CPN Tools' version='4.0.1'>
+                    </text>
+                </initmark>
+            </place>
+            <place id='ID4811420611'>
+                <posattr x='108.000000' y='259.000000'/>
+                <fillattr colour='White' pattern='Solid' filled='false'/>
+                <lineattr colour='Black' thick='1' type='Solid'/>
+                <textattr colour='Black' bold='false'/>
+                <text>
+                    Alerta_Sobrecarga
+                </text>
+                <ellipse w='79.000000' h='54.000000'/>
+                <token x='0.000000' y='-7.000000'>
+                    <text>
+                    </text>
+                </token>
+                <marking x='-129.000000' y='-7.000000' hidden='false'>
+                    <snap snap_id='0' anchor.horizontal='0' anchor.vertical='0'/>
+                    <text>
+                    </text>
+                </marking>
+                <type id='ID4811420611a'>
+                    <posattr x='166.000000' y='225.000000'/>
+                    <fillattr colour='White' pattern='Solid' filled='false'/>
+                    <lineattr colour='Black' thick='1' type='Solid'/>
+                    <textattr colour='Black' bold='false'/>
+                    <text tool='CPN Tools' version='4.0.1'>
+                        CARGA
+                    </text>
+                </type>
+                <initmark id='ID4811420611b'>
+                    <posattr x='166.000000' y='294.000000'/>
+                    <fillattr colour='White' pattern='Solid' filled='false'/>
+                    <lineattr colour='Black' thick='1' type='Solid'/>
+                    <textattr colour='Black' bold='false'/>
+                    <text tool='CPN Tools' version='4.0.1'>
+                    </text>
+                </initmark>
+            </place>
+            <trans id='ID4811714669'>
+                <posattr x='-380.000000' y='366.000000'/>
+                <fillattr colour='White' pattern='Solid' filled='false'/>
+                <lineattr colour='Black' thick='1' type='Solid'/>
+                <textattr colour='Black' bold='false'/>
+                <text>
+                    Elevar_Plataforma
+                </text>
+                <box w='83.000000' h='59.000000'/>
+                <cond id='ID4811714669a'>
+                    <posattr x='-287.000000' y='403.000000'/>
+                    <fillattr colour='White' pattern='Solid' filled='false'/>
+                    <lineattr colour='Black' thick='1' type='Solid'/>
+                    <textattr colour='Black' bold='false'/>
+                    <text tool='CPN Tools' version='4.0.1'>
+                        [d = SUBIR andalso cargaSegura(p)]
+                    </text>
+                </cond>
+                <time id='ID4811714669b'>
+                    <posattr x='-345.000000' y='403.000000'/>
+                    <fillattr colour='White' pattern='Solid' filled='false'/>
+                    <lineattr colour='Black' thick='1' type='Solid'/>
+                    <textattr colour='Black' bold='false'/>
+                    <text tool='CPN Tools' version='4.0.1'>
+                    </text>
+                </time>
+                <code id='ID4811714669c'>
+                    <posattr x='-345.000000' y='330.000000'/>
+                    <fillattr colour='White' pattern='Solid' filled='false'/>
+                    <lineattr colour='Black' thick='1' type='Solid'/>
+                    <textattr colour='Black' bold='false'/>
+                    <text tool='CPN Tools' version='4.0.1'>
+                    </text>
+                </code>
+                <priority id='ID4811714669d'>
+                    <posattr x='-415.000000' y='330.000000'/>
+                    <fillattr colour='White' pattern='Solid' filled='false'/>
+                    <lineattr colour='Black' thick='1' type='Solid'/>
+                    <textattr colour='Black' bold='false'/>
+                    <text tool='CPN Tools' version='4.0.1'>
+                    </text>
+                </priority>
+            </trans>
+            <trans id='ID4811788623'>
+                <posattr x='-137.000000' y='259.000000'/>
+                <fillattr colour='White' pattern='Solid' filled='false'/>
+                <lineattr colour='Black' thick='1' type='Solid'/>
+                <textattr colour='Black' bold='false'/>
+                <text>
+                    Bloquear_Excesso
+                </text>
+                <box w='89.000000' h='54.000000'/>
+                <cond id='ID4811788623a'>
+                    <posattr x='-84.000000' y='294.000000'/>
+                    <fillattr colour='White' pattern='Solid' filled='false'/>
+                    <lineattr colour='Black' thick='1' type='Solid'/>
+                    <textattr colour='Black' bold='false'/>
+                    <text tool='CPN Tools' version='4.0.1'>
+                        [not (cargaSegura(p))]
+                    </text>
+                </cond>
+                <time id='ID4811788623b'>
+                    <posattr x='-99.000000' y='294.000000'/>
+                    <fillattr colour='White' pattern='Solid' filled='false'/>
+                    <lineattr colour='Black' thick='1' type='Solid'/>
+                    <textattr colour='Black' bold='false'/>
+                    <text tool='CPN Tools' version='4.0.1'>
+                    </text>
+                </time>
+                <code id='ID4811788623c'>
+                    <posattr x='-99.000000' y='225.000000'/>
+                    <fillattr colour='White' pattern='Solid' filled='false'/>
+                    <lineattr colour='Black' thick='1' type='Solid'/>
+                    <textattr colour='Black' bold='false'/>
+                    <text tool='CPN Tools' version='4.0.1'>
+                    </text>
+                </code>
+                <priority id='ID4811788623d'>
+                    <posattr x='-175.000000' y='225.000000'/>
+                    <fillattr colour='White' pattern='Solid' filled='false'/>
+                    <lineattr colour='Black' thick='1' type='Solid'/>
+                    <textattr colour='Black' bold='false'/>
+                    <text tool='CPN Tools' version='4.0.1'>
+                    </text>
+                </priority>
+            </trans>
+            <arc id='ID4812116880' orientation='TtoP' order='1'>
+                <posattr x='0.000000' y='0.000000'/>
+                <fillattr colour='White' pattern='Solid' filled='false'/>
+                <lineattr colour='Black' thick='1' type='Solid'/>
+                <textattr colour='Black' bold='false'/>
+                <arrowattr headsize='1' currentcyckle='2'/>
+                <transend idref='ID4811788623'/>
+                <placeend idref='ID4811420611'/>
+                <annot id='ID4812116880a'>
+                    <posattr x='-19.000000' y='276.000000'/>
+                    <fillattr colour='White' pattern='Solid' filled='false'/>
+                    <lineattr colour='Black' thick='1' type='Solid'/>
+                    <textattr colour='Black' bold='false'/>
+                    <text tool='CPN Tools' version='4.0.1'>
+                        p
+                    </text>
+                </annot>
+                <text>
+                </text>
+            </arc>
+            <arc id='ID4812223660' orientation='PtoT' order='1'>
+                <posattr x='0.000000' y='0.000000'/>
+                <fillattr colour='White' pattern='Solid' filled='false'/>
+                <lineattr colour='Black' thick='1' type='Solid'/>
+                <textattr colour='Black' bold='false'/>
+                <arrowattr headsize='1' currentcyckle='2'/>
+                <transend idref='ID4811714669'/>
+                <placeend idref='ID4811417196'/>
+                <annot id='ID4812223660a'>
+                    <posattr x='-438.000000' y='325.000000'/>
+                    <fillattr colour='White' pattern='Solid' filled='false'/>
+                    <lineattr colour='Black' thick='1' type='Solid'/>
+                    <textattr colour='Black' bold='false'/>
+                    <text tool='CPN Tools' version='4.0.1'>
+                        (p,d)
+                    </text>
+                </annot>
+                <text>
+                </text>
+            </arc>
+            <arc id='ID4812259895' orientation='TtoP' order='1'>
+                <posattr x='0.000000' y='0.000000'/>
+                <fillattr colour='White' pattern='Solid' filled='false'/>
+                <lineattr colour='Black' thick='1' type='Solid'/>
+                <textattr colour='Black' bold='false'/>
+                <arrowattr headsize='1' currentcyckle='2'/>
+                <transend idref='ID4811714669'/>
+                <placeend idref='ID4811418764'/>
+                <annot id='ID4812259895a'>
+                    <posattr x='-300.000000' y='384.000000'/>
+                    <fillattr colour='White' pattern='Solid' filled='false'/>
+                    <lineattr colour='Black' thick='1' type='Solid'/>
+                    <textattr colour='Black' bold='false'/>
+                    <text tool='CPN Tools' version='4.0.1'>
+                        p
+                    </text>
+                </annot>
+                <text>
+                </text>
+            </arc>
+            <arc id='ID4812293419' orientation='PtoT' order='1'>
+                <posattr x='0.000000' y='0.000000'/>
+                <fillattr colour='White' pattern='Solid' filled='false'/>
+                <lineattr colour='Black' thick='1' type='Solid'/>
+                <textattr colour='Black' bold='false'/>
+                <arrowattr headsize='1' currentcyckle='2'/>
+                <transend idref='ID4811788623'/>
+                <placeend idref='ID4811417196'/>
+                <annot id='ID4812293419a'>
+                    <posattr x='-315.000000' y='270.000000'/>
+                    <fillattr colour='White' pattern='Solid' filled='false'/>
+                    <lineattr colour='Black' thick='1' type='Solid'/>
+                    <textattr colour='Black' bold='false'/>
+                    <text tool='CPN Tools' version='4.0.1'>
+                        (p,d)
+                    </text>
+                </annot>
+                <text>
+                </text>
+            </arc>
+        </page>
+        <instances>
+            <instance id='ID6itop' page='ID6'/>
+        </instances>
+        <options>
+            <option name='realtimestamp'>
+                <value>
+                    <boolean>
+                        false
+                    </boolean>
+                </value>
+            </option>
+            <option name='fair_be'>
+                <value>
+                    <boolean>
+                        false
+                    </boolean>
+                </value>
+            </option>
+            <option name='global_fairness'>
+                <value>
+                    <boolean>
+                        false
+                    </boolean>
+                </value>
+            </option>
+            <option name='outputdirectory'>
+                <value>
+                    <text>
+                        &lt;same as model&gt;
+                    </text>
+                </value>
+            </option>
+            <option name='extensions.10006.enable'>
+                <value>
+                    <boolean>
+                        true
+                    </boolean>
+                </value>
+            </option>
+            <option name='extensions.10001.enable'>
+                <value>
+                    <boolean>
+                        true
+                    </boolean>
+                </value>
+            </option>
+            <option name='extensions.10003.enable'>
+                <value>
+                    <boolean>
+                        true
+                    </boolean>
+                </value>
+            </option>
+            <option name='extensions.10005.enable'>
+                <value>
+                    <boolean>
+                        true
+                    </boolean>
+                </value>
+            </option>
+            <option name='extensions.10002.enable'>
+                <value>
+                    <boolean>
+                        true
+                    </boolean>
+                </value>
+            </option>
+            <option name='repavg'>
+                <value>
+                    <boolean>
+                        true
+                    </boolean>
+                </value>
+            </option>
+            <option name='repciavg'>
+                <value>
+                    <boolean>
+                        true
+                    </boolean>
+                </value>
+            </option>
+            <option name='repcount'>
+                <value>
+                    <boolean>
+                        false
+                    </boolean>
+                </value>
+            </option>
+            <option name='repfirstval'>
+                <value>
+                    <boolean>
+                        false
+                    </boolean>
+                </value>
+            </option>
+            <option name='replastval'>
+                <value>
+                    <boolean>
+                        false
+                    </boolean>
+                </value>
+            </option>
+            <option name='repmax'>
+                <value>
+                    <boolean>
+                        true
+                    </boolean>
+                </value>
+            </option>
+            <option name='repmin'>
+                <value>
+                    <boolean>
+                        true
+                    </boolean>
+                </value>
+            </option>
+            <option name='repssquare'>
+                <value>
+                    <boolean>
+                        false
+                    </boolean>
+                </value>
+            </option>
+            <option name='repssqdev'>
+                <value>
+                    <boolean>
+                        false
+                    </boolean>
+                </value>
+            </option>
+            <option name='repstddev'>
+                <value>
+                    <boolean>
+                        true
+                    </boolean>
+                </value>
+            </option>
+            <option name='repsum'>
+                <value>
+                    <boolean>
+                        false
+                    </boolean>
+                </value>
+            </option>
+            <option name='repvariance'>
+                <value>
+                    <boolean>
+                        false
+                    </boolean>
+                </value>
+            </option>
+            <option name='avg'>
+                <value>
+                    <boolean>
+                        true
+                    </boolean>
+                </value>
+            </option>
+            <option name='ciavg'>
+                <value>
+                    <boolean>
+                        false
+                    </boolean>
+                </value>
+            </option>
+            <option name='count'>
+                <value>
+                    <boolean>
+                        true
+                    </boolean>
+                </value>
+            </option>
+            <option name='firstval'>
+                <value>
+                    <boolean>
+                        false
+                    </boolean>
+                </value>
+            </option>
+            <option name='lastval'>
+                <value>
+                    <boolean>
+                        false
+                    </boolean>
+                </value>
+            </option>
+            <option name='max'>
+                <value>
+                    <boolean>
+                        true
+                    </boolean>
+                </value>
+            </option>
+            <option name='min'>
+                <value>
+                    <boolean>
+                        true
+                    </boolean>
+                </value>
+            </option>
+            <option name='ssquare'>
+                <value>
+                    <boolean>
+                        false
+                    </boolean>
+                </value>
+            </option>
+            <option name='ssqdev'>
+                <value>
+                    <boolean>
+                        false
+                    </boolean>
+                </value>
+            </option>
+            <option name='stddev'>
+                <value>
+                    <boolean>
+                        false
+                    </boolean>
+                </value>
+            </option>
+            <option name='sum'>
+                <value>
+                    <boolean>
+                        false
+                    </boolean>
+                </value>
+            </option>
+            <option name='variance'>
+                <value>
+                    <boolean>
+                        false
+                    </boolean>
+                </value>
+            </option>
+            <option name='firstupdate'>
+                <value>
+                    <boolean>
+                        false
+                    </boolean>
+                </value>
+            </option>
+            <option name='interval'>
+                <value>
+                    <boolean>
+                        false
+                    </boolean>
+                </value>
+            </option>
+            <option name='lastupdate'>
+                <value>
+                    <boolean>
+                        false
+                    </boolean>
+                </value>
+            </option>
+            <option name='untimedavg'>
+                <value>
+                    <boolean>
+                        true
+                    </boolean>
+                </value>
+            </option>
+            <option name='untimedciavg'>
+                <value>
+                    <boolean>
+                        false
+                    </boolean>
+                </value>
+            </option>
+            <option name='untimedcount'>
+                <value>
+                    <boolean>
+                        true
+                    </boolean>
+                </value>
+            </option>
+            <option name='untimedfirstval'>
+                <value>
+                    <boolean>
+                        false
+                    </boolean>
+                </value>
+            </option>
+            <option name='untimedlastval'>
+                <value>
+                    <boolean>
+                        false
+                    </boolean>
+                </value>
+            </option>
+            <option name='untimedmax'>
+                <value>
+                    <boolean>
+                        true
+                    </boolean>
+                </value>
+            </option>
+            <option name='untimedmin'>
+                <value>
+                    <boolean>
+                        true
+                    </boolean>
+                </value>
+            </option>
+            <option name='untimedssquare'>
+                <value>
+                    <boolean>
+                        false
+                    </boolean>
+                </value>
+            </option>
+            <option name='untimedssqdev'>
+                <value>
+                    <boolean>
+                        false
+                    </boolean>
+                </value>
+            </option>
+            <option name='untimedstddev'>
+                <value>
+                    <boolean>
+                        false
+                    </boolean>
+                </value>
+            </option>
+            <option name='untimedsum'>
+                <value>
+                    <boolean>
+                        true
+                    </boolean>
+                </value>
+            </option>
+            <option name='untimedvariance'>
+                <value>
+                    <boolean>
+                        false
+                    </boolean>
+                </value>
+            </option>
+        </options>
+        <binders/>
+        <monitorblock name='Monitors'>
+            <monitor id='ID4285858218' name='Count transition occurrences monitor (BTran)' type='6' typedescription='Count transition occurrences' disabled='false'>
+                <node idref='ID1412328496' pageinstanceidref='ID6itop'/>
+                <option name='Timed' value='false'>
+                </option>
+                <option name='Logging' value='true'>
+                </option>
+            </monitor>
+        </monitorblock>
+        <IndexNode expanded='true'>
+            <IndexNode expanded='false'>
+            </IndexNode>
+            <IndexNode expanded='false'>
+            </IndexNode>
+            <IndexNode expanded='false'>
+                <IndexNode expanded='false'>
+                </IndexNode>
+                <IndexNode expanded='false'>
+                </IndexNode>
+                <IndexNode expanded='false'>
+                </IndexNode>
+                <IndexNode expanded='false'>
+                </IndexNode>
+                <IndexNode expanded='false'>
+                    <IndexNode expanded='false'>
+                        <IndexNode expanded='false'>
+                            <IndexNode expanded='false'>
+                            </IndexNode>
+                            <IndexNode expanded='false'>
+                            </IndexNode>
+                            <IndexNode expanded='false'>
+                            </IndexNode>
+                            <IndexNode expanded='false'>
+                            </IndexNode>
+                            <IndexNode expanded='false'>
+                            </IndexNode>
+                            <IndexNode expanded='false'>
+                            </IndexNode>
+                            <IndexNode expanded='false'>
+                            </IndexNode>
+                            <IndexNode expanded='false'>
+                            </IndexNode>
+                            <IndexNode expanded='false'>
+                            </IndexNode>
+                            <IndexNode expanded='false'>
+                            </IndexNode>
+                            <IndexNode expanded='false'>
+                            </IndexNode>
+                            <IndexNode expanded='false'>
+                            </IndexNode>
+                            <IndexNode expanded='false'>
+                            </IndexNode>
+                            <IndexNode expanded='false'>
+                            </IndexNode>
+                            <IndexNode expanded='false'>
+                            </IndexNode>
+                        </IndexNode>
+                        <IndexNode expanded='false'>
+                            <IndexNode expanded='false'>
+                            </IndexNode>
+                            <IndexNode expanded='false'>
+                            </IndexNode>
+                            <IndexNode expanded='false'>
+                            </IndexNode>
+                            <IndexNode expanded='false'>
+                            </IndexNode>
+                            <IndexNode expanded='false'>
+                            </IndexNode>
+                            <IndexNode expanded='false'>
+                            </IndexNode>
+                            <IndexNode expanded='false'>
+                            </IndexNode>
+                            <IndexNode expanded='false'>
+                            </IndexNode>
+                            <IndexNode expanded='false'>
+                            </IndexNode>
+                            <IndexNode expanded='false'>
+                            </IndexNode>
+                            <IndexNode expanded='false'>
+                            </IndexNode>
+                            <IndexNode expanded='false'>
+                            </IndexNode>
+                        </IndexNode>
+                    </IndexNode>
+                    <IndexNode expanded='false'>
+                        <IndexNode expanded='false'>
+                        </IndexNode>
+                        <IndexNode expanded='false'>
+                        </IndexNode>
+                        <IndexNode expanded='false'>
+                        </IndexNode>
+                        <IndexNode expanded='false'>
+                        </IndexNode>
+                        <IndexNode expanded='false'>
+                        </IndexNode>
+                        <IndexNode expanded='false'>
+                        </IndexNode>
+                        <IndexNode expanded='false'>
+                        </IndexNode>
+                        <IndexNode expanded='false'>
+                        </IndexNode>
+                        <IndexNode expanded='false'>
+                        </IndexNode>
+                        <IndexNode expanded='false'>
+                        </IndexNode>
+                        <IndexNode expanded='false'>
+                        </IndexNode>
+                        <IndexNode expanded='false'>
+                        </IndexNode>
+                    </IndexNode>
+                </IndexNode>
+                <IndexNode expanded='false'>
+                    <IndexNode expanded='false'>
+                    </IndexNode>
+                    <IndexNode expanded='false'>
+                    </IndexNode>
+                    <IndexNode expanded='false'>
+                    </IndexNode>
+                    <IndexNode expanded='false'>
+                    </IndexNode>
+                    <IndexNode expanded='false'>
+                    </IndexNode>
+                </IndexNode>
+            </IndexNode>
+            <IndexNode expanded='false'>
+            </IndexNode>
+            <IndexNode expanded='true'>
+                <IndexNode expanded='false'>
+                    <IndexNode expanded='true'>
+                    </IndexNode>
+                    <IndexNode expanded='true'>
+                    </IndexNode>
+                    <IndexNode expanded='true'>
+                    </IndexNode>
+                </IndexNode>
+                <IndexNode expanded='true'>
+                    <IndexNode expanded='true'>
+                    </IndexNode>
+                    <IndexNode expanded='true'>
+                    </IndexNode>
+                    <IndexNode expanded='true'>
+                    </IndexNode>
+                    <IndexNode expanded='false'>
+                    </IndexNode>
+                    <IndexNode expanded='false'>
+                    </IndexNode>
+                    <IndexNode expanded='false'>
+                    </IndexNode>
+                    <IndexNode expanded='false'>
+                    </IndexNode>
+                    <IndexNode expanded='true'>
+                    </IndexNode>
+                </IndexNode>
+            </IndexNode>
+            <IndexNode expanded='false'>
+            </IndexNode>
+            <IndexNode expanded='true'>
+            </IndexNode>
+        </IndexNode>
+    </cpnet>
+</workspaceElements>
